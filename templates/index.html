@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Income Prediction Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        label i {
+            margin-right: 8px;
+            color: #667eea;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 15px;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #667eea;
+            background-color: #fff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+
+        input[type="submit"] {
+            background-color: #667eea;
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 25px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            input, select {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2><i class="fas fa-file-alt"></i> Income Prediction Form</h2>
+        <form action="/result" method="POST">
+            
+            <label for="age"><i class="fas fa-user"></i> Age</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="w_class"><i class="fas fa-briefcase"></i> Workclass</label>
+            <select id="w_class" name="w_class" required>
+                <option value="0">Federal-gov</option>
+                <option value="1">Local-gov</option>
+                <option value="2">Never-worked</option>
+                <option value="3">Private</option>
+                <option value="4">Self-emp-inc</option>
+                <option value="5">Self-emp-not-inc</option>
+                <option value="6">State-gov</option>
+                <option value="7">Without-pay</option>
+            </select>
+
+            <label for="edu"><i class="fas fa-graduation-cap"></i> Education</label>
+            <select id="edu" name="edu" required>
+                <option value="0">10th</option>
+                <option value="1">11th</option>
+                <option value="2">12th</option>
+                <option value="3">1st-4th</option>
+                <option value="4">5th-6th</option>
+                <option value="5">7th-8th</option>
+                <option value="6">9th</option>
+                <option value="7">Assoc-acdm</option>
+                <option value="8">Assoc-voc</option>
+                <option value="9">Bachelors</option>
+                <option value="10">Doctorate</option>
+                <option value="11">HS-grad</option>
+                <option value="12">Masters</option>
+                <option value="13">Preschool</option>
+                <option value="14">Prof-school</option>
+                <option value="15">Some-college</option>
+            </select>
+
+            <label for="martial_stat"><i class="fas fa-heart"></i> Marital Status</label>
+            <select id="martial_stat" name="martial_stat" required>
+                <option value="0">Divorced</option>
+                <option value="1">Married</option>
+                <option value="2">Not Married</option>
+            </select>
+
+            <label for="occup"><i class="fas fa-user-tie"></i> Occupation</label>
+            <select id="occup" name="occup" required>
+                <option value="0">Adm-clerical</option>
+                <option value="1">Armed-Forces</option>
+                <option value="2">Craft-repair</option>
+                <option value="3">Exec-managerial</option>
+                <option value="4">Farming-fishing</option>
+                <option value="5">Handlers-cleaners</option>
+                <option value="6">Machine-op-inspect</option>
+                <option value="7">Other-service</option>
+                <option value="8">Priv-house-serv</option>
+                <option value="9">Prof-specialty</option>
+                <option value="10">Protective-serv</option>
+                <option value="11">Sales</option>
+                <option value="12">Tech-support</option>
+                <option value="13">Transport-moving</option>
+            </select>
+
+            <label for="relation"><i class="fas fa-users"></i> Relationship</label>
+            <select id="relation" name="relation" required>
+                <option value="0">Husband</option>
+                <option value="1">Not-in-family</option>
+                <option value="2">Other-relative</option>
+                <option value="3">Own-child</option>
+                <option value="4">Unmarried</option>
+                <option value="5">Wife</option>
+            </select>
+
+            <label for="race"><i class="fas fa-palette"></i> Race</label>
+            <select id="race" name="race" required>
+                <option value="0">Amer Indian Eskimo</option>
+                <option value="1">Asian Pac Islander</option>
+                <option value="2">Black</option>
+                <option value="3">Other</option>
+                <option value="4">White</option>
+            </select>
+
+            <label for="gender"><i class="fas fa-venus-mars"></i> Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+
+            <label for="c_gain"><i class="fas fa-coins"></i> Capital Gain</label>
+            <input type="number" id="c_gain" name="c_gain" min="0" max="99999" required>
+
+            <label for="c_loss"><i class="fas fa-minus-circle"></i> Capital Loss</label>
+            <input type="number" id="c_loss" name="c_loss" min="0" max="4356" required>
+
+            <label for="hours_per_week"><i class="fas fa-clock"></i> Hours per Week</label>
+            <input type="number" id="hours_per_week" name="hours_per_week" min="1" max="99" required>
+
+            <label for="native-country"><i class="fas fa-globe"></i> Native Country</label>
+            <select id="native-country" name="native-country" required>
+                <option value="0">Cambodia</option>
+                <option value="1">Canada</option>
+                <option value="2">China</option>
+                <option value="3">Columbia</option>
+                <option value="4">Cuba</option>
+                <option value="5">Dominican Republic</option>
+                <option value="6">Ecuador</option>
+                <option value="7">El Salvador</option>
+                <option value="8">England</option>
+                <option value="9">France</option>
+                <option value="10">Germany</option>
+                <option value="11">Greece</option>
+                <option value="12">Guatemala</option>
+                <option value="13">Haiti</option>
+                <option value="14">Netherlands</option>
+                <option value="15">Honduras</option>
+                <option value="16">HongKong</option>
+                <option value="17">Hungary</option>
+                <option value="18">India</option>
+                <option value="19">Iran</option>
+                <option value="20">Ireland</option>
+                <option value="21">Italy</option>
+                <option value="22">Jamaica</option>
+                <option value="23">Japan</option>
+                <option value="24">Laos</option>
+                <option value="25">Mexico</option>
+                <option value="26">Nicaragua</option>
+                <option value="27">Outlying-US(Guam-USVI-etc)</option>
+                <option value="28">Peru</option>
+                <option value="29">Philippines</option>
+                <option value="30">Poland</option>
+                <option value="31">Portugal</option>
+                <option value="32">Puerto-Rico</option>
+                <option value="33">Scotland</option>
+                <option value="34">South</option>
+                <option value="35">Taiwan</option>
+                <option value="36">Thailand</option>
+                <option value="37">Trinidad&Tobago</option>
+                <option value="38">United States</option>
+                <option value="39">Vietnam</option>
+                <option value="40">Yugoslavia</option>
+            </select>
+
+            <input type="submit" value="Predict Income">
+        </form>
+    </div>
+</body>
+</html>
