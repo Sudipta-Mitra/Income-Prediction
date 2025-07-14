@@ -41,10 +41,10 @@ A user-friendly web application that predicts whether a person's income exceeds 
 ## 📷 Screenshots
 
 ### 📝 Form Interface
-![Form Interface](screenshots/form_preview.png)
+![Form Interface](form.jpeg)
 
 ### 📊 Prediction Result
-![Result Page](screenshots/result_preview.png)
+![Result Page](result.jpeg)
 
 ---
 
